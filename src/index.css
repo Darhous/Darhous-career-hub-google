@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #d0bcff;
+  --color-primary-container: #a078ff;
+  --color-on-primary-container: #340080;
+  --color-secondary: #4cd7f6;
+  --color-secondary-container: #03b5d3;
+  --color-tertiary: #4edea3;
+  --color-tertiary-container: #00a572;
+  --color-surface-container-lowest: #080e1d;
+  --color-surface-container-low: #151b2b;
+  --color-surface-container: #191f2f;
+  --color-surface-container-high: #242a3a;
+  --color-surface-container-highest: #2f3445;
+  --color-surface-bright: #33394a;
+  --color-surface: #0d1322;
+  --color-background: #0d1322;
+  --color-on-surface: #dde2f8;
+  --color-on-surface-variant: #cbc3d7;
+  --color-on-background: #dde2f8;
+  --color-outline: #958ea0;
+  --color-outline-variant: #494454;
+  --color-error: #ffb4ab;
+  --color-error-container: #93000a;
+  
+  --font-sans: "Be Vietnam Pro", ui-sans-serif, system-ui, sans-serif;
+  --font-arabic: "Tajawal", "Almarai", system-ui, sans-serif;
+}
+
+@layer utilities {
+  .glass-panel {
+    @apply bg-surface-container/50 backdrop-blur-md border border-outline-variant/30 rounded-2xl shadow-lg;
+  }
+  .glass-button {
+    @apply bg-primary/10 hover:bg-primary/20 text-primary border border-primary/20 transition-all duration-300;
+  }
+  .ai-pulse {
+    animation: ai-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .hide-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+}
+
+@keyframes ai-pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: .5;
+  }
+}
+
+body {
+  @apply bg-background text-on-surface font-sans antialiased overflow-x-hidden;
+  background-image: 
+    radial-gradient(ellipse at top left, rgba(208, 188, 255, 0.05) 0%, transparent 40%),
+    radial-gradient(ellipse at bottom right, rgba(76, 215, 246, 0.05) 0%, transparent 40%);
+  background-attachment: fixed;
+}

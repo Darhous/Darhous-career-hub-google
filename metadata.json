@@ -1,0 +1,6 @@
+{
+  "name": "Darhous Career Hub",
+  "description": "من سيرتك الذاتية إلى وظيفتك القادمة — بخطة ذكية واحدة",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
