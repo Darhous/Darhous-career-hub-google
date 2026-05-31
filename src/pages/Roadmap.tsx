@@ -194,8 +194,8 @@ export function Roadmap() {
          <p className="text-sm text-on-surface-variant mb-6 max-w-lg mx-auto">
            قم بتحديث سيرتك الذاتية ليعكس المحلل الذكي مهاراتك الجديدة ويقوم بتوليد مسار متقدم أكثر يطابق مستواك الحالي.
          </p>
-         <Button className="gap-2 shadow-lg shadow-primary/20">
-            تحديث وإعادة بناء المسار
+         <Button className="gap-2 shadow-lg shadow-primary/20 opacity-50 cursor-not-allowed">
+            تحديث وإعادة بناء المسار (قريباً)
          </Button>
       </div>
     </div>

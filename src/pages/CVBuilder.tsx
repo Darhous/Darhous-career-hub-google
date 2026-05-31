@@ -48,11 +48,11 @@ export function CVBuilder() {
         </div>
         
         <div className="flex items-center gap-3">
-          <Button variant="outline" size="sm" className="gap-2 shrink-0">
-             حفظ كمسودة
+          <Button variant="outline" size="sm" className="gap-2 shrink-0 opacity-50 cursor-not-allowed text-on-surface-variant">
+             حفظ كمسودة (قريباً)
           </Button>
-          <Button size="sm" className="gap-2 shrink-0 bg-secondary hover:bg-secondary/90 text-secondary-container-lowest">
-             <FileDown className="w-4 h-4" /> تصدير PDF
+          <Button size="sm" className="gap-2 shrink-0 bg-secondary opacity-50 cursor-not-allowed hover:bg-secondary/90 text-secondary-container-lowest">
+             <FileDown className="w-4 h-4" /> تصدير PDF (قريباً)
           </Button>
         </div>
       </header>
@@ -165,7 +165,7 @@ export function CVBuilder() {
                                          setFormData({...formData, experience: newExp});
                                    }} />
                                    <div className="flex justify-end mt-2">
-                                      <Button variant="outline" size="sm" className="text-[10px] h-6 px-2 text-tertiary border-tertiary/30 hover:bg-tertiary/10">أعد صياغة بـ AI</Button>
+                                      <Button variant="outline" size="sm" className="text-[10px] h-6 px-2 text-tertiary border-tertiary/30 hover:bg-tertiary/10 opacity-50 cursor-not-allowed">أعد صياغة بـ AI (قريباً)</Button>
                                    </div>
                                 </div>
                              </div>
@@ -264,8 +264,8 @@ export function CVBuilder() {
                                onChange={(e) => setFormData({...formData, summary: e.target.value})}
                              />
                              <div className="flex justify-end mt-4">
-                               <Button variant="outline" size="sm" className="gap-2 text-tertiary border-tertiary/30 hover:bg-tertiary/10">
-                                 <Sparkles className="w-4 h-4" /> صياغة بـ AI
+                               <Button variant="outline" size="sm" className="gap-2 text-tertiary border-tertiary/30 hover:bg-tertiary/10 opacity-50 cursor-not-allowed">
+                                 <Sparkles className="w-4 h-4" /> صياغة بـ AI (قريباً)
                                </Button>
                              </div>
                           </div>

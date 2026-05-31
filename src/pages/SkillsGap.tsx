@@ -37,6 +37,9 @@ export function SkillsGap() {
         <h1 className="text-3xl font-bold text-on-surface mb-2 flex items-center gap-3">
           <Activity className="w-8 h-8 text-error" />
           تحليل فجوة المهارات
+          <span className="bg-tertiary/10 text-tertiary border border-tertiary/20 text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider shrink-0 mr-auto">
+             بيانات تجريبية
+          </span>
         </h1>
         <p className="text-on-surface-variant max-w-2xl">
           مقارنة بين مهاراتك الحالية (بناءً على السيرة الذاتية) والمهارات المطلوبة لدور <span className="font-bold text-secondary">Senior Frontend Engineer</span>.

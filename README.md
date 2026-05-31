@@ -1,20 +1,61 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# Darhous Career Hub
 
-# Run and deploy your AI Studio app
+مرحباً بك في **Darhous Career Hub**، المنصة الذكية المتكاملة لتطوير مسارك المهني. المنصة مصممة لتكون جزءاً من منظومة **Darhous Smart Learning Ecosystem**.
 
-This contains everything you need to run your app locally.
+## المميزات الرئيسية
+- **محلل السيرة الذاتية (ATS Analyzer)**: رفع وتحليل الـ CV (بصيغة `PDF` أو `TXT`) ومطابقته برمجياً وتحديد نقاط الضعف عبر الذكاء الاصطناعي.
+- **التدريب للمقابلات (Interview Prep)**: صياغة إجابات احترافية بنظام `STAR` وتقييمها بـ Gemini AI.
+- **صانع السيرة الذاتية (CV Builder)**: واجهة مرنة وسهلة لبناء المعطيات الأولية (حفظ الـ PDF وتوليد النصوص سيتم تفعيلهم قريباً).
+- **مكتبة القوالب (Templates)**: عرض قوالب متوافقة 100% مع أنظمة ATS (الاستخدام قريباً).
+- **بوابة الوظائف الذكية (Jobs Portal)**: عرض الوظائف المتوافقة بذكاء مع عرض فجوة المهارات (بيانات استعراضية).
+- **لوحة التحكم الشاملة (Dashboard)**: متتبع التقديمات والمسار المهني (بيانات استعراضية).
 
-View your app in AI Studio: https://ai.studio/apps/31751645-8fc5-4e7e-9613-0c2d84bbc6c7
+> **ملاحظة حول الوضع الحالي (Prototype)**: 
+> حالياً يتم استخدام بيانات تجريبية (Demo Data / Static Preview) في صفحات الـ Dashboard، Jobs، Templates، وأجزاء من CV Builder. الوظائف المتصلة بالخادم (Backend) التي تعمل بصورة كاملة هي: `تحليل السيرة الذاتية (Upload & AI Analyze)`، و `تقييم المقابلات (Interview Assessment)`.
 
-## Run Locally
+## متطلبات التشغيل
+- Node.js `v18` أو إصدار أحدث.
+- مفتاح `GEMINI_API_KEY` (لنسخة Google Gemini 2.5 Flash).
 
-**Prerequisites:**  Node.js
+## متغيرات البيئة (Environment Variables)
+قم بنسخ ملف `.env.example` إلى `.env` وأضف المفتاح السري، يجب ألا يتم كشف المفتاح للواجهة الأمامية:
 
+```env
+GEMINI_API_KEY="your_gemini_api_key_here"
+PORT=3000
+```
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+*لا تضع سابقة `VITE_` أمام مفتاح API لتتجنب كشفه للمتصفح.*
+
+## أوامر التشغيل والفحص
+
+1. التثبيت الأنظف للمكتبات:
+   ```bash
+   npm ci
+   ```
+2. فحص الأخطاء البرمجية (Type Check & Lint):
+   ```bash
+   npm run typecheck
+   npm run lint
+   ```
+3. تشغيل وضع التطوير:
+   ```bash
+   npm run dev
+   ```
+4. بناء النسخة الإنتاجية (Build):
+   ```bash
+   npm run build
+   ```
+5. تشغيل النسخة الإنتاجية المبنية (Start):
+   ```bash
+   npm run start
+   ```
+
+## هيكل المشروع واستراتيجية النشر (Deployment Strategy)
+المشروع مبني بهيكلية **Monolith** (بصيغة `Vite + Express in one repo`) للحفاظ على أمان المفاتيح (Secrets).
+
+- **مجلد `src`**: واجهات `React` تم استبدالها لاحقاً لدمجها مع واجهة التطبيق.
+- **ملف `server.ts`**: يحتوي على خادم الموازنة وحفظ التوجيهات من بروتوكول `API`، وعند النشر يعتمد على الخوادم الجاهزة التي تدعم حاويات `Node Server`.
+
+**طريقة النشر المختارة: Render / Railway / Cloud Run** (الخيار A):
+السبب: الاعتماد على `esbuild` في `package.json` يجمع `server.ts` داخل `dist/server.cjs`. خوادم التخزين السحابية (Hosting services) ستشغل هذا الملف عبر الأمر `npm run start` أو `node dist/server.cjs` والذي يعمل كـ `Express Server` ويوفر (Serves) الواجهات الثابتة لـ `React` في مجلد `dist`، وكذلك يخدم منافذ `API` الخاصة بالتحليل عبر الذكاء الاصطناعي بشكل آمن. الفكرة ممتازة وتوفر استخدام `Vercel Serverless Functions` الذي يحتاج إعادة كتابة للمسارات.

@@ -260,11 +260,11 @@ export function Jobs() {
               </div>
 
               <div className="mt-8 pt-6 border-t border-outline-variant/30 flex gap-3">
-                 <Button className="flex-1 gap-2 font-bold shadow-lg shadow-primary/20 hover:shadow-primary/40">
-                   تقديم الآن
+                 <Button className="flex-1 gap-2 font-bold opacity-50 cursor-not-allowed">
+                   تقديم الآن (قريباً)
                    <ExternalLink className="w-4 h-4" />
                  </Button>
-                 <Button variant="outline" className="flex-1 gap-2">
+                 <Button variant="outline" className="flex-1 gap-2 opacity-50 cursor-not-allowed">
                    نسخ خطة التقديم
                  </Button>
               </div>

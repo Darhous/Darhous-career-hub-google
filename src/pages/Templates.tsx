@@ -102,8 +102,8 @@ export function Templates() {
                 </p>
                 
                 <div className="flex items-center gap-3 w-full">
-                   <Button className="flex-1 font-bold">
-                      استخدام القالب
+                   <Button className="flex-1 font-bold opacity-50 cursor-not-allowed">
+                      استخدام القالب (قريباً)
                    </Button>
                 </div>
              </div>
